@@ -63,6 +63,7 @@ return null;
 
 public EcoSystem retrieveSystem() {
 ObjectContainer conn = createConnection();
+System.out.println("Connection created :" + conn);
 ObjectSet<EcoSystem> systems = conn.query(EcoSystem.class); // Change to the object you want to save
 EcoSystem system;
 if (systems.isEmpty()) {

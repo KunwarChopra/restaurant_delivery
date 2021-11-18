@@ -9,15 +9,15 @@ import Business.DB4OUtil.DB4OUtil;
 
 import Business.Organization;
 import Business.UserAccount.UserAccount;
+import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
  *
- * @author Lingfeng
- */
-public class MainJFrame extends javax.swing.JFrame {
+ * @author Kunwa
+ */public class MainJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MainJFrame
@@ -122,7 +122,13 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
-        // Get user name
+        
+       UserAccount useraccount = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
+        
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        container.add("Login", useraccount.getRole().createWorkArea(container, useraccount, system));
+        crdLyt.next(container);
+        logoutJButton.setEnabled(true); 
        
     }//GEN-LAST:event_loginJButtonActionPerformed
 
