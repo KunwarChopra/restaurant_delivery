@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author kunwa
+ * @author admin
  */
 public class Order {
     private String orderId;
@@ -92,5 +92,4 @@ public class Order {
     public String toString() {
         return orderId;
     }
-    
 }

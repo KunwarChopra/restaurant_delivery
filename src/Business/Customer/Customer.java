@@ -5,6 +5,10 @@
  */
 package Business.Customer;
 
+import Business.Order.Order;
+import Business.Restaurant.Dishes;
+import java.util.ArrayList;
+
 /**
  *
  * @author harold
@@ -12,11 +16,11 @@ package Business.Customer;
 public class Customer {
     
     private String name;
-private String username;
-// private ArrayList<Order> orderList;
-private String address;
-private String number;
-
+    private String userName;
+    private ArrayList<Order> orderList;
+    private String address;
+    private String number;
+    
     public String getName() {
         return name;
     }
@@ -25,12 +29,26 @@ private String number;
         this.name = name;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    
+    
+    public Customer(String userName){
+        this.userName = userName;
+        orderList=new ArrayList<Order>();
+    }
+
+    public ArrayList<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(ArrayList<Order> orderList) {
+        this.orderList = orderList;
     }
 
     public String getAddress() {
@@ -49,8 +67,19 @@ private String number;
         this.number = number;
     }
     
-    public Customer(String username){
-this.username = username;
-// orderList=new ArrayList<Order>();
-}
+    int id = 1;
+    public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Dishes> Order, String price, String deliveryAddress) {
+        Order order=new Order();
+        order.setOrderId(String.valueOf(id));
+        order.setCustomerName(customerName);
+        order.setRestaurantName(restaurentName);
+        order.setDeliveryMan(deliverMan);
+        order.setOrder(Order);
+        order.setPrice(price);
+        order.setDeliveryAddress(deliveryAddress);
+        order.setStatus("New Order");
+        orderList.add(order);
+        id++;
+    }    
+    
 }

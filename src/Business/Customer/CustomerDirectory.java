@@ -29,7 +29,7 @@ return customer;
 }
 public void deleteCustomer(String username){
 for(int i=0;i<customerDirectory.size();i++){
-if(customerDirectory.get(i).getUsername()==username){
+if(customerDirectory.get(i).getUserName()==username){
 customerDirectory.remove(i);
 }
 }
