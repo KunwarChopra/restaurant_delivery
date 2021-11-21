@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -43,7 +43,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="99" green="99" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
@@ -179,6 +179,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnUpdate">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Update"/>
           </Properties>
           <Events>
@@ -187,6 +190,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnDelete">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Delete"/>
           </Properties>
           <Events>
@@ -195,6 +201,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnSave">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Save"/>
           </Properties>
           <Events>
@@ -203,6 +212,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnRegisterDeliveryMan">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Register DeliveryMan"/>
           </Properties>
           <Events>
@@ -211,6 +223,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnBack">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;&lt;Back"/>
           </Properties>
           <Events>

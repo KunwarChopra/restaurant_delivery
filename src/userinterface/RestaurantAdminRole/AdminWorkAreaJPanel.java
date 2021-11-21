@@ -44,35 +44,39 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("My Work Area -Adminstrative Role");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
+        userJButton.setBackground(new java.awt.Color(255, 153, 153));
         userJButton.setText("Manage Restaurant Info");
         userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userJButtonActionPerformed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 180, -1));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 160, -1));
 
+        manageEmployeeJButton.setBackground(new java.awt.Color(255, 153, 153));
         manageEmployeeJButton.setText("Manage menu");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 150, -1));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 160, -1));
 
+        manageOrganizationJButton.setBackground(new java.awt.Color(255, 153, 153));
         manageOrganizationJButton.setText("Manage Orders");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 160, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Restaurant :");

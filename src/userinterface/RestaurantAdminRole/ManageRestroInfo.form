@@ -38,7 +38,10 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="cc" green="cc" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
@@ -161,10 +164,7 @@
         <Component class="javax.swing.JButton" name="btnUpdate">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="99" green="99" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Update"/>
           </Properties>
@@ -175,10 +175,7 @@
         <Component class="javax.swing.JButton" name="btnSave">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="99" green="99" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Save"/>
           </Properties>
@@ -199,10 +196,7 @@
         <Component class="javax.swing.JButton" name="btnBack">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="99" green="99" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;&lt; Back"/>
           </Properties>

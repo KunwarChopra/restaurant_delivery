@@ -9,6 +9,8 @@ import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import Business.validation.Validation;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -67,7 +69,8 @@ public class ManageRestroInfo extends javax.swing.JPanel {
         txtUserName = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setForeground(new java.awt.Color(255, 153, 153));
 
         jLabel1.setText("Restaurant Name:");
 
@@ -84,8 +87,7 @@ public class ManageRestroInfo extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Restaurant Info");
 
-        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setBackground(new java.awt.Color(255, 153, 153));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,8 +95,7 @@ public class ManageRestroInfo extends javax.swing.JPanel {
             }
         });
 
-        btnSave.setBackground(new java.awt.Color(0, 0, 0));
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setBackground(new java.awt.Color(255, 153, 153));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,8 +107,7 @@ public class ManageRestroInfo extends javax.swing.JPanel {
 
         txtUserName.setEnabled(false);
 
-        btnBack.setBackground(new java.awt.Color(0, 0, 0));
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 153, 153));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,8 +205,8 @@ public class ManageRestroInfo extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-
-        for(Restaurant restro: ecosystem.getRestaurantDirectory().getRestaurantDirectory()){
+        if(validateFields()) {
+            for(Restaurant restro: ecosystem.getRestaurantDirectory().getRestaurantDirectory()){
             if(restro.getUserName().equals(account.getUsername())){
                 ecosystem.getRestaurantDirectory().updateRestaurantInfo(restro, txtRestaurantName.getText(), txtPhoneNumber.getText(), txtAddress.getText());
             }
@@ -216,6 +216,8 @@ public class ManageRestroInfo extends javax.swing.JPanel {
         txtRestaurantName.setEnabled(false);
         txtAddress.setEnabled(false);
         txtPhoneNumber.setEnabled(false);
+        }
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -225,7 +227,21 @@ public class ManageRestroInfo extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-
+    private boolean validateFields() {
+        if(!Validation.isValidRestaurantName(txtRestaurantName.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter a valid name for the restaurant");
+            return false;
+        } else if(!Validation.isValidPhone(txtPhoneNumber.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter a valid phone number");
+            return false;
+        } else if(!Validation.isValidAddress(txtAddress.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter a valid address for the restaurant");
+            return false;
+        } else{
+            return true;
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;

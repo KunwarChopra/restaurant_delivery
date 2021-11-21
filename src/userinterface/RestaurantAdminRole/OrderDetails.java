@@ -68,7 +68,7 @@ private JPanel userProcessContainer;
         btnBack = new javax.swing.JButton();
         btnStatus = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
         tblOrderDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,8 +92,7 @@ private JPanel userProcessContainer;
 
         lblOrderID.setText("jLabel3");
 
-        btnBack.setBackground(new java.awt.Color(0, 0, 0));
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 153, 153));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,8 +100,7 @@ private JPanel userProcessContainer;
             }
         });
 
-        btnStatus.setBackground(new java.awt.Color(0, 0, 0));
-        btnStatus.setForeground(new java.awt.Color(255, 255, 255));
+        btnStatus.setBackground(new java.awt.Color(255, 153, 153));
         btnStatus.setText("Change Status to Ready");
         btnStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +126,7 @@ private JPanel userProcessContainer;
                         .addGap(18, 18, 18)
                         .addComponent(lblOrderID))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
+                        .addGap(166, 166, 166)
                         .addComponent(btnStatus)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -142,9 +140,9 @@ private JPanel userProcessContainer;
                     .addComponent(btnBack))
                 .addGap(63, 63, 63)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnStatus)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

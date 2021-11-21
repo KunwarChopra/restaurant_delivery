@@ -19,60 +19,64 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import Business.validation.Validation;
+
 /**
  *
  * @author kunwa
  */
 public class MenuPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private Restaurant restaurant;
     private UserAccount userAccount;
     private EcoSystem ecosystem;
-    ArrayList<Dishes> items=new ArrayList<Dishes>();
+    ArrayList<Dishes> items = new ArrayList<Dishes>();
     int sum = 0;
-    
+
     /**
      * Creates new form MenuPanel
      */
     public MenuPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, Restaurant restaurant) {
         initComponents();
-        
+
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         this.userAccount = account;
         this.restaurant = restaurant;
-        
+
         populateMenuTable();
-        
-       
+
     }
-     public void populateMenuTable(){
-         DefaultTableModel tablemodel = (DefaultTableModel) tblMenu.getModel();
-        
-            tablemodel.setRowCount(0);
-                Object[] row = new Object[3];
-                for(Dishes dish:restaurant.getMenu()){
-                     row[0] = dish;
-                     row[1] = dish.getDescription();
-                     row[2] = dish.getPrice();
-                     tablemodel.addRow(row);
-                } 
+
+    public void populateMenuTable() {
+        DefaultTableModel tablemodel = (DefaultTableModel) tblMenu.getModel();
+
+        tablemodel.setRowCount(0);
+        Object[] row = new Object[3];
+        for (Dishes dish : restaurant.getMenu()) {
+            row[0] = dish;
+            row[1] = dish.getDescription();
+            row[2] = dish.getPrice();
+            tablemodel.addRow(row);
+        }
     }
-     
-     public void populateCart(Dishes dishitem){
+
+    public void populateCart(Dishes dishitem) {
         DefaultTableModel tablemodel = (DefaultTableModel) tblCart.getModel();
         tablemodel.setRowCount(0);
-        
-         items.add(dishitem);
-         Object[] row = new Object[3];
-                for(Dishes dish:items){
-                     row[0] = dish;
-                     row[1] = dish.getDescription();
-                     row[2] = dish.getPrice();
-                     sum=sum+Integer.parseInt(dish.getPrice());
-                     tablemodel.addRow(row);
-                }
+
+        items.add(dishitem);
+        Object[] row = new Object[3];
+        for (Dishes dish : items) {
+            row[0] = dish;
+            row[1] = dish.getDescription();
+            row[2] = dish.getPrice();
+            sum = sum + Integer.parseInt(dish.getPrice());
+            tablemodel.addRow(row);
+        }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,11 +100,10 @@ public class MenuPanel extends javax.swing.JPanel {
         btnRemoveFromCart = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnOrder.setBackground(new java.awt.Color(0, 0, 0));
-        btnOrder.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrder.setBackground(new java.awt.Color(255, 153, 153));
         btnOrder.setText("Order");
         btnOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,8 +113,7 @@ public class MenuPanel extends javax.swing.JPanel {
         jPanel1.add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 480, 100, -1));
         jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 150, -1));
 
-        backJButton.setBackground(new java.awt.Color(0, 0, 0));
-        backJButton.setForeground(new java.awt.Color(255, 255, 255));
+        backJButton.setBackground(new java.awt.Color(255, 153, 153));
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,8 +149,7 @@ public class MenuPanel extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, 130));
 
-        btnAddToCart.setBackground(new java.awt.Color(0, 0, 0));
-        btnAddToCart.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddToCart.setBackground(new java.awt.Color(255, 153, 153));
         btnAddToCart.setText("Add To Cart");
         btnAddToCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,8 +178,7 @@ public class MenuPanel extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, 130));
 
-        btnRemoveFromCart.setBackground(new java.awt.Color(0, 0, 0));
-        btnRemoveFromCart.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemoveFromCart.setBackground(new java.awt.Color(255, 204, 204));
         btnRemoveFromCart.setText("Remove Item");
         btnRemoveFromCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,14 +214,17 @@ public class MenuPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
-String address=txtAddress.getText();
-        restaurant.addOrder(restaurant.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
-        for(Customer cust:ecosystem.getCustomerDirectory().getCustomerDirectory()){
-            if(userAccount.getUsername().equals(cust.getUserName())){
-                cust.addOrder(restaurant.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
-                JOptionPane.showMessageDialog(null, "You Order placed successfully");
+        if (validateFields()) {
+            String address = txtAddress.getText();
+            restaurant.addOrder(restaurant.getName(), userAccount.getUsername(), null, items, String.valueOf(sum), address);
+            for (Customer cust : ecosystem.getCustomerDirectory().getCustomerDirectory()) {
+                if (userAccount.getUsername().equals(cust.getUserName())) {
+                    cust.addOrder(restaurant.getName(), userAccount.getUsername(), null, items, String.valueOf(sum), address);
+                    JOptionPane.showMessageDialog(null, "You Order placed successfully");
+                }
             }
         }
+
     }//GEN-LAST:event_btnOrderActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -231,19 +234,18 @@ String address=txtAddress.getText();
         Component component = componentArray[componentArray.length - 1];
         CustomerAreaJPanel dwjp = (CustomerAreaJPanel) component;
         dwjp.populateRequestTable();
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
         // TODO add your handling code here:
-        
-         int selectedRow = tblMenu.getSelectedRow();
-        if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to add","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            Dishes dishItem=(Dishes)tblMenu.getValueAt(selectedRow, 0);
+
+        int selectedRow = tblMenu.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table to add", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            Dishes dishItem = (Dishes) tblMenu.getValueAt(selectedRow, 0);
 
             populateCart(dishItem);
 
@@ -253,18 +255,39 @@ String address=txtAddress.getText();
     private void btnRemoveFromCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFromCartActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblCart.getSelectedRow();
-        if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to remove from cart","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            Dishes item=(Dishes)tblCart.getValueAt(selectedRow, 0);
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table to remove from cart", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            Dishes item = (Dishes) tblCart.getValueAt(selectedRow, 0);
             items.remove(item);
             DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
             model.setRowCount(0);
-            // commented no use
+            populateFoodItemCart(items);
+
         }
     }//GEN-LAST:event_btnRemoveFromCartActionPerformed
 
+    private void populateFoodItemCart(ArrayList<Dishes> items) {
+        DefaultTableModel tablemodel = (DefaultTableModel) tblCart.getModel();
+        tablemodel.setRowCount(0);
+        Object[] row = new Object[3];
+        for (Dishes dish : items) {
+            row[0] = dish;
+            row[1] = dish.getDescription();
+            row[2] = dish.getPrice();
+            sum = sum + Integer.parseInt(dish.getPrice());
+            tablemodel.addRow(row);
+        }
+    }
+
+    private boolean validateFields() {
+        if (!Validation.isValidAddress(txtAddress.getText())) {
+            JOptionPane.showConfirmDialog(this, "Please enter a valid address to place the order");
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;

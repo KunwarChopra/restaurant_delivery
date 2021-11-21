@@ -26,6 +26,11 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
               <JSplitPaneConstraints position="left"/>
@@ -68,6 +73,11 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
               <JSplitPaneConstraints position="right"/>
@@ -87,16 +97,14 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnManageAdmin" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="btnManageEnterprise" max="32767" attributes="0"/>
-                                      <Component id="btnManageNetwork" max="32767" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnManageEnterprise" max="32767" attributes="0"/>
+                                  <Component id="btnManageNetwork" max="32767" attributes="0"/>
+                                  <Component id="btnManageAdmin" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="240" max="32767" attributes="0"/>
+                      <EmptySpace pref="302" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -132,6 +140,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnManageNetwork">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Manage All Customers"/>
               </Properties>
               <Events>
@@ -140,6 +151,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnManageEnterprise">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Manage Restaurants"/>
               </Properties>
               <Events>
@@ -148,6 +162,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnManageAdmin">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Manage Deliveryman"/>
               </Properties>
               <Events>

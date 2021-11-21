@@ -50,27 +50,30 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         enterpriseLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        requestTestJButton.setBackground(new java.awt.Color(255, 153, 153));
         requestTestJButton.setText("Request Test");
         requestTestJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 requestTestJButtonActionPerformed(evt);
             }
         });
-        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 95, -1, -1));
+        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
         jLabel1.setText("Message");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 40, -1, -1));
         add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 37, 89, -1));
 
+        backJButton.setBackground(new java.awt.Color(255, 153, 153));
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 138, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 130, -1));

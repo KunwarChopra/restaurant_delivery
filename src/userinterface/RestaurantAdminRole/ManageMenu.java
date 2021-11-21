@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-
 package userinterface.RestaurantAdminRole;
 
 import Business.EcoSystem;
@@ -13,6 +12,8 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import Business.validation.Validation;
+
 /**
  *
  * @author kunwa
@@ -26,40 +27,38 @@ public class ManageMenu extends javax.swing.JPanel {
     private UserAccount account;
     private EcoSystem ecosystem;
     private Dishes menu;
-    public ManageMenu(JPanel userProcessContainer,UserAccount account, EcoSystem ecosystem) {
+
+    public ManageMenu(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.ecosystem = ecosystem;
-        
+
         populateFoodCatalogue();
     }
-    public void populateFoodCatalogue(){
-            DefaultTableModel tablemodel = (DefaultTableModel) tblMenuCatalogue.getModel();
-        
+
+    public void populateFoodCatalogue() {
+        DefaultTableModel tablemodel = (DefaultTableModel) tblMenuCatalogue.getModel();
+
         tablemodel.setRowCount(0);
-        
-       
-        for (Restaurant restro:ecosystem.getRestaurantDirectory().getRestaurantDirectory()) {
-           
+
+        for (Restaurant restro : ecosystem.getRestaurantDirectory().getRestaurantDirectory()) {
+
             if (restro.getUserName().equals(account.getUsername())) {
                 System.out.println("1");
-                if(!(restro.getMenu().isEmpty())){
-                    for(Dishes menu:restro.getMenu()){
+
+                for (Dishes menu : restro.getMenu()) {
                     System.out.println("2");
                     Object[] row = new Object[3];
                     row[0] = menu.getName();
                     row[1] = menu.getDescription();
                     row[2] = menu.getPrice();
                     tablemodel.addRow(row);
-               }
                 }
-               
-                
             }
-            
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,7 +83,7 @@ public class ManageMenu extends javax.swing.JPanel {
         tblMenuCatalogue = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel1.setText("Food Name:");
 
@@ -101,8 +100,7 @@ public class ManageMenu extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Menu Catalogue");
 
-        btnAddFoodItem.setBackground(new java.awt.Color(0, 0, 0));
-        btnAddFoodItem.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddFoodItem.setBackground(new java.awt.Color(255, 153, 153));
         btnAddFoodItem.setText("Add Food Item");
         btnAddFoodItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,8 +108,7 @@ public class ManageMenu extends javax.swing.JPanel {
             }
         });
 
-        btnBack.setBackground(new java.awt.Color(0, 0, 0));
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 153, 153));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +121,7 @@ public class ManageMenu extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Food Name", "Description", "Price"
+                "Foodname", "Description", "Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -137,8 +134,7 @@ public class ManageMenu extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblMenuCatalogue);
 
-        btnDelete.setBackground(new java.awt.Color(0, 0, 0));
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setBackground(new java.awt.Color(255, 153, 153));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,13 +255,16 @@ public class ManageMenu extends javax.swing.JPanel {
 
     private void btnAddFoodItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFoodItemActionPerformed
         // TODO add your handling code here:
-        for(Restaurant restro : ecosystem.getRestaurantDirectory().getRestaurantDirectory()){
-            if(restro.getUserName().equals(account.getUsername())){
-                menu = ecosystem.getRestaurantDirectory().AddMenuDishes(restro, txtFoodName.getText(), txtFoodDescription.getText(), txtPrice.getText());
+        if (validateFields()) {
+            for (Restaurant restro : ecosystem.getRestaurantDirectory().getRestaurantDirectory()) {
+                if (restro.getUserName().equals(account.getUsername())) {
+                    menu = ecosystem.getRestaurantDirectory().AddMenuDishes(restro, txtFoodName.getText(), txtFoodDescription.getText(), txtPrice.getText());
+                }
             }
+
+            populateFoodCatalogue();
         }
 
-        populateFoodCatalogue();
     }//GEN-LAST:event_btnAddFoodItemActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -279,23 +278,55 @@ public class ManageMenu extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblMenuCatalogue.getSelectedRow();
-        if(selectedRow>=0){
+        if (selectedRow >= 0) {
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete??","Warning",selectionButton);
-            if(selectionResult == JOptionPane.YES_OPTION){
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete??", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                String Foodname = (String) tblMenuCatalogue.getValueAt(selectedRow, 1);
 
-                for(Restaurant restro:ecosystem.getRestaurantDirectory().getRestaurantDirectory()){
-                    if(restro.getUserName().equals(account.getUsername())){
+                for (Restaurant restro : ecosystem.getRestaurantDirectory().getRestaurantDirectory()) {
+                    if (restro.getUserName().equals(account.getUsername())) {
                         ecosystem.getRestaurantDirectory().DeleteDishes(restro, menu);
                     }
                 }
                 populateFoodCatalogue();
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Please select a row to proceed for deletion");
         }
+
+//        int selectedRow = tblMenuCatalogue.getSelectedRow();
+//        if(selectedRow>=0){
+//            int selectionButton = JOptionPane.YES_NO_OPTION;
+//            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?","Warning",selectionButton);
+//            if(selectionResult == JOptionPane.YES_OPTION){
+//                String Foodname= (String) tblMenuCatalogue.getValueAt(selectedRow, 1);
+//                String Description= (String) tblMenuCatalogue.getValueAt(selectedRow, 2);
+//                UserAccount user=ecosystem.getUserAccountDirectory().authenticateUser(Foodname, Description);
+//
+//                ecosystem.getUserAccountDirectory().deleteUserAccount(user);
+//                ecosystem.getRestaurantDirectory().deleteRestaurant(user.getUsername());
+//                populateFoodCatalogue();
+//            }
+//        }else{
+//            JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
+//        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private boolean validateFields() {
+        if (!Validation.isValidPrice(txtPrice.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid price for the dish");
+            return false;
+        } else if (!Validation.isValidName(txtFoodName.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid name of the dish");
+            return false;
+        } else if (!Validation.isValidName(txtFoodDescription.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid food description");
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddFoodItem;

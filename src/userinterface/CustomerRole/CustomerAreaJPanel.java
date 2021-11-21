@@ -77,7 +77,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         lblCustomerID = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
         tblRestaurant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,8 +104,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblRestaurant);
 
-        btnOrder.setBackground(new java.awt.Color(0, 0, 0));
-        btnOrder.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrder.setBackground(new java.awt.Color(255, 153, 153));
         btnOrder.setText("Place Order");
         btnOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,8 +112,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        refreshTestJButton.setBackground(new java.awt.Color(0, 0, 0));
-        refreshTestJButton.setForeground(new java.awt.Color(255, 255, 255));
+        refreshTestJButton.setBackground(new java.awt.Color(255, 153, 153));
         refreshTestJButton.setText("Refresh");
         refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,21 +136,22 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(refreshTestJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnOrder))))
-                .addContainerGap(217, Short.MAX_VALUE))
+                        .addGap(42, 42, 42)
+                        .addComponent(btnOrder)
+                        .addGap(78, 78, 78)
+                        .addComponent(refreshTestJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jLabel1)))
+                .addContainerGap(332, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,15 +160,15 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(btnOrder)
-                .addGap(37, 37, 37)
-                .addComponent(refreshTestJButton)
-                .addContainerGap(346, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnOrder)
+                    .addComponent(refreshTestJButton))
+                .addContainerGap(449, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

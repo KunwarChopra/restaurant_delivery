@@ -89,7 +89,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblOrderDetails.setModel(new javax.swing.table.DefaultTableModel(
@@ -119,8 +119,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 58, 650, 96));
 
-        processJButton.setBackground(new java.awt.Color(0, 0, 0));
-        processJButton.setForeground(new java.awt.Color(255, 255, 255));
+        processJButton.setBackground(new java.awt.Color(255, 153, 153));
         processJButton.setText("Process");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,8 +128,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
 
-        refreshJButton.setBackground(new java.awt.Color(0, 0, 0));
-        refreshJButton.setForeground(new java.awt.Color(255, 255, 255));
+        refreshJButton.setBackground(new java.awt.Color(255, 153, 153));
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +153,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
         Order order = (Order)tblOrderDetails.getValueAt(selectedRow, 0);
         LabTestWorkRequest Order = null;
-        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, Order);
+        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, order);
         userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

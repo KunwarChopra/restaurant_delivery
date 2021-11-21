@@ -61,6 +61,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+
         jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 jTreeValueChanged(evt);
@@ -85,10 +87,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane.setLeftComponent(jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+
         jLabel1.setText("Selected Node:");
 
         lblSelectedNode.setText("<View_selected_node>");
 
+        btnManageNetwork.setBackground(new java.awt.Color(255, 153, 153));
         btnManageNetwork.setText("Manage All Customers");
         btnManageNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +101,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageEnterprise.setBackground(new java.awt.Color(255, 153, 153));
         btnManageEnterprise.setText("Manage Restaurants");
         btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +109,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageAdmin.setBackground(new java.awt.Color(255, 153, 153));
         btnManageAdmin.setText("Manage Deliveryman");
         btnManageAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,12 +130,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(lblSelectedNode))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnManageAdmin)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnManageEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(240, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnManageEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnManageAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

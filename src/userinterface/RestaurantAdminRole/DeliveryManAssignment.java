@@ -67,7 +67,7 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         btnOrderAssignment = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
         tblDeliveryMan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,8 +87,7 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDeliveryMan);
 
-        btnBack.setBackground(new java.awt.Color(0, 0, 0));
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 153, 153));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,8 +95,7 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
             }
         });
 
-        btnOrderAssignment.setBackground(new java.awt.Color(0, 0, 0));
-        btnOrderAssignment.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrderAssignment.setBackground(new java.awt.Color(255, 153, 153));
         btnOrderAssignment.setText("Assign Order");
         btnOrderAssignment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

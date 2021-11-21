@@ -12,6 +12,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import Business.validation.Validation;
 
 /**
  *
@@ -72,12 +73,15 @@ public class ManageCustomerSysadmin extends javax.swing.JPanel {
         btnsave = new javax.swing.JButton();
         btnback = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+
         jLabel1.setText("name:");
 
         jLabel2.setText("username:");
 
         jLabel3.setText("password:");
 
+        btnSaveManageCustomers.setBackground(new java.awt.Color(255, 153, 153));
         btnSaveManageCustomers.setText("Add");
         btnSaveManageCustomers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +110,7 @@ public class ManageCustomerSysadmin extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblCustomersManageCustomers);
 
+        btnupdate.setBackground(new java.awt.Color(255, 153, 153));
         btnupdate.setText("update");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +118,7 @@ public class ManageCustomerSysadmin extends javax.swing.JPanel {
             }
         });
 
+        btndelete.setBackground(new java.awt.Color(255, 153, 153));
         btndelete.setText("Delete");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +126,7 @@ public class ManageCustomerSysadmin extends javax.swing.JPanel {
             }
         });
 
+        btnsave.setBackground(new java.awt.Color(255, 153, 153));
         btnsave.setText("save");
         btnsave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +134,7 @@ public class ManageCustomerSysadmin extends javax.swing.JPanel {
             }
         });
 
+        btnback.setBackground(new java.awt.Color(255, 153, 153));
         btnback.setText("Back");
         btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,9 +146,6 @@ public class ManageCustomerSysadmin extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 429, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -157,9 +162,7 @@ public class ManageCustomerSysadmin extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtUsernameManageCutomers)))
-                        .addGap(267, 267, 267)
-                        .addComponent(btnback))
+                                .addComponent(txtUsernameManageCutomers))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(142, 142, 142)
                         .addComponent(btnSaveManageCustomers))
@@ -170,20 +173,22 @@ public class ManageCustomerSysadmin extends javax.swing.JPanel {
                         .addComponent(btndelete)
                         .addGap(28, 28, 28)
                         .addComponent(btnsave)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(481, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnback)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 429, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtNameManageCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(btnback)))
+                .addContainerGap()
+                .addComponent(btnback)
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNameManageCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -207,70 +212,75 @@ public class ManageCustomerSysadmin extends javax.swing.JPanel {
 
     private void btnSaveManageCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveManageCustomersActionPerformed
         // TODO add your handling code here:
-        if (ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsernameManageCutomers.getText())) {
-            UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtNameManageCustomers.getText(), txtUsernameManageCutomers.getText(), txtPasswordManageCustomers.getText(), null, new CustomerRole());
-            Customer customer = ecosystem.getCustomerDirectory().createUserAccount(txtUsernameManageCutomers.getText());
-            populateCustomersTable();
-            txtNameManageCustomers.setText("");
-            txtUsernameManageCutomers.setText("");
-            txtPasswordManageCustomers.setText("");
+        if (validateFields()) {
+            if (ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsernameManageCutomers.getText())) {
+                UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtNameManageCustomers.getText(), txtUsernameManageCutomers.getText(), txtPasswordManageCustomers.getText(), null, new CustomerRole());
+                Customer customer = ecosystem.getCustomerDirectory().createUserAccount(txtUsernameManageCutomers.getText());
+                populateCustomersTable();
+                txtNameManageCustomers.setText("");
+                txtUsernameManageCutomers.setText("");
+                txtPasswordManageCustomers.setText("");
 
-        } else {
-            JOptionPane.showMessageDialog(null, "Username is not unique");
+            } else {
+                JOptionPane.showMessageDialog(null, "Username is not unique");
+            }
         }
+
     }//GEN-LAST:event_btnSaveManageCustomersActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
         // TODO add your handling code here:
+
         int selectRow = tblCustomersManageCustomers.getSelectedRow();
 
-if(selectRow>=0){
-String name = (String) tblCustomersManageCustomers.getValueAt(selectRow, 0);
-String username= (String) tblCustomersManageCustomers.getValueAt(selectRow, 1);
-String password= (String) tblCustomersManageCustomers.getValueAt(selectRow, 2);
-user=ecosystem.getUserAccountDirectory().authenticateUser(username, password);
-txtNameManageCustomers.setText(name+"");
-txtPasswordManageCustomers.setText(username+"");
-txtUsernameManageCutomers.setText(password+"");
+        if (selectRow >= 0) {
+            String name = (String) tblCustomersManageCustomers.getValueAt(selectRow, 0);
+            String username = (String) tblCustomersManageCustomers.getValueAt(selectRow, 1);
+            String password = (String) tblCustomersManageCustomers.getValueAt(selectRow, 2);
+            user = ecosystem.getUserAccountDirectory().authenticateUser(username, password);
+            txtNameManageCustomers.setText(name + "");
+            txtPasswordManageCustomers.setText(username + "");
+            txtUsernameManageCutomers.setText(password + "");
 
-JOptionPane.showMessageDialog(null,"Please press save button to save the profile after updating the text field");
+            JOptionPane.showMessageDialog(null, "Please press save button to save the profile after updating the text field");
 
-}
-else {
-JOptionPane.showMessageDialog(null,"Please select a row to update a profile");
-}
-        
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row to update a profile");
+        }
+
+
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblCustomersManageCustomers.getSelectedRow();
-if(selectedRow>=0){
-int selectionButton = JOptionPane.YES_NO_OPTION;
-int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?","Warning",selectionButton);
-if(selectionResult == JOptionPane.YES_OPTION){
-String username= (String) tblCustomersManageCustomers.getValueAt(selectedRow, 1);
-String pwd= (String) tblCustomersManageCustomers.getValueAt(selectedRow, 2);
-UserAccount user=ecosystem.getUserAccountDirectory().authenticateUser(username, pwd);
-ecosystem.getUserAccountDirectory().deleteUserAccount(user);
-ecosystem.getCustomerDirectory().deleteCustomer(user.getUsername());
-populateCustomersTable();
-}
-}else{
-JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
-}
+        if (selectedRow >= 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                String username = (String) tblCustomersManageCustomers.getValueAt(selectedRow, 1);
+                String pwd = (String) tblCustomersManageCustomers.getValueAt(selectedRow, 2);
+                UserAccount user = ecosystem.getUserAccountDirectory().authenticateUser(username, pwd);
+                ecosystem.getUserAccountDirectory().deleteUserAccount(user);
+                ecosystem.getCustomerDirectory().deleteCustomer(user.getUsername());
+                populateCustomersTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
+        }
     }//GEN-LAST:event_btndeleteActionPerformed
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
-        ecosystem.getUserAccountDirectory().updateUserAccount(user, txtNameManageCustomers.getText(), txtUsernameManageCutomers.getText(), txtPasswordManageCustomers.getText());
-populateCustomersTable();
+        if (validateFields()) {
+            ecosystem.getUserAccountDirectory().updateUserAccount(user, txtNameManageCustomers.getText(), txtUsernameManageCutomers.getText(), txtPasswordManageCustomers.getText());
+            populateCustomersTable();
 
+            txtNameManageCustomers.setText("");
+            txtUsernameManageCutomers.setText("");
+            txtPasswordManageCustomers.setText("");
+        }
 
-
-txtNameManageCustomers.setText("");
-txtUsernameManageCutomers.setText("");
-txtPasswordManageCustomers.setText("");
     }//GEN-LAST:event_btnsaveActionPerformed
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
@@ -280,6 +290,20 @@ txtPasswordManageCustomers.setText("");
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnbackActionPerformed
 
+    private boolean validateFields() {
+        if (!Validation.isValidName(txtNameManageCustomers.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid name for the customer");
+            return false;
+        } else if(!Validation.isValidUsername(txtUsernameManageCutomers.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter a valid username");
+            return false;
+        } else if (!Validation.isValidPassword(txtPasswordManageCustomers.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid password");
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSaveManageCustomers;

@@ -77,7 +77,7 @@ public class ManageOrders extends javax.swing.JPanel {
         btnViewOrder = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
 
         tblOrderDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,8 +97,7 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblOrderDetail);
 
-        btnBack.setBackground(new java.awt.Color(0, 0, 0));
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 153, 153));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,8 +105,7 @@ public class ManageOrders extends javax.swing.JPanel {
             }
         });
 
-        btnAssignDeliveryMan.setBackground(new java.awt.Color(0, 0, 0));
-        btnAssignDeliveryMan.setForeground(new java.awt.Color(255, 255, 255));
+        btnAssignDeliveryMan.setBackground(new java.awt.Color(255, 153, 153));
         btnAssignDeliveryMan.setText("Assign Delivery Man to Order");
         btnAssignDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,8 +113,7 @@ public class ManageOrders extends javax.swing.JPanel {
             }
         });
 
-        btnViewOrder.setBackground(new java.awt.Color(0, 0, 0));
-        btnViewOrder.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewOrder.setBackground(new java.awt.Color(255, 153, 153));
         btnViewOrder.setText("View Order");
         btnViewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,8 +121,7 @@ public class ManageOrders extends javax.swing.JPanel {
             }
         });
 
-        btnRefresh.setBackground(new java.awt.Color(0, 0, 0));
-        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setBackground(new java.awt.Color(255, 153, 153));
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
