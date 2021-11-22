@@ -328,6 +328,12 @@ public class ManageRestaurant extends javax.swing.JPanel {
         if (!Validation.isValidRestaurantName(txtName.getText())) {
             JOptionPane.showMessageDialog(this, "Please enter a valid name for the restaurant");
             return false;
+        } else if(!Validation.isValidUsername(txtUserName.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid username");
+            return false;
+        } else if (!Validation.isValidPassword(txtPassword.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid password");
+            return false;
         } else {
             return true;
         }

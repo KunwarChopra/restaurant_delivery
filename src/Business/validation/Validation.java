@@ -10,7 +10,7 @@ package Business.validation;
  */
 public class Validation {
 
-    private static final String NAME_REGEX = "^[a-zA-Z 0-9_-]*$";
+    private static final String NAME_REGEX = "^[a-zA-Z ]*$";
     private static final String ALPHANUMERIC_REGEX = "^[a-zA-Z 0-9_-]+$";
     private static final String PRICE_REGEX = "^(0|[1-9]\\d*)(\\.\\d+)?$";
     private static final String TEN_DIGIT_NUMBER_REGEX = "^\\d{10}$";

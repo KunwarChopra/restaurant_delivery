@@ -290,6 +290,9 @@ public class ManageMenu extends javax.swing.JPanel {
                     }
                 }
                 populateFoodCatalogue();
+                txtFoodDescription.setText("");
+                txtFoodName.setText("");
+                txtPrice.setText("");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select a row to proceed for deletion");

@@ -305,6 +305,12 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         if (!Validation.isValidName(txtName.getText())) {
             JOptionPane.showMessageDialog(this, "Please enter a valid name for the delivery man");
             return false;
+        } else if(!Validation.isValidUsername(txtUserName.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid username");
+            return false;
+        } else if (!Validation.isValidPassword(txtPassword.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid password");
+            return false;
         } else {
             return true;
         }
