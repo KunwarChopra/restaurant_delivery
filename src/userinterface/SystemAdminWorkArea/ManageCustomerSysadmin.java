@@ -239,8 +239,8 @@ public class ManageCustomerSysadmin extends javax.swing.JPanel {
             String password = (String) tblCustomersManageCustomers.getValueAt(selectRow, 2);
             user = ecosystem.getUserAccountDirectory().authenticateUser(username, password);
             txtNameManageCustomers.setText(name + "");
-            txtPasswordManageCustomers.setText(username + "");
-            txtUsernameManageCutomers.setText(password + "");
+            txtPasswordManageCustomers.setText(password + "");
+            txtUsernameManageCutomers.setText(username + "");
 
             JOptionPane.showMessageDialog(null, "Please press save button to save the profile after updating the text field");
 
